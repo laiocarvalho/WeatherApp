@@ -12,16 +12,27 @@ export default function WeatherCard({setWeatherCardVisibility}) {
     WeatherInformation, 
     NextDaysWeather,
     loading,
+  
     CurrentDay
   } = useContainer(WeatherInfoContainer);
-  
+  console.log(WeatherInformation)
 
   
   return (
    <>
     {loading 
     ? "Carregando"
-    : <div className="weather-card-container"> 
+    : WeatherInformation.by === "default"
+    ? <div className="weather-card-container-error"> 
+        <h2 className="weather-card-error-message">Insira uma cidade válida</h2>
+        <button 
+          onClick={() => {
+            setWeatherCardVisibility()
+          }}>
+          <GrClose/>
+        </button>
+      </div>
+    : <div className="weather-card-container">
         <div className="weather-card-content-wrapper">
           <header className="weather-card-header">
             <span className="info-style">{WeatherInformation.results.city}</span>
@@ -30,7 +41,7 @@ export default function WeatherCard({setWeatherCardVisibility}) {
               <GrClose/>
             </button>
           </header>
-          <h2>{WeatherInformation.results.temp} C° {WeatherInformation.results.description}</h2>
+          <h2 className="current-day-temp-description">{WeatherInformation.results.temp} C° {WeatherInformation.results.description}</h2>
           <div className="weather-card-general-information">
               <div className="weather-max-min-wind-wrapper">
                 <div className="weather-card-max-min-temperature">

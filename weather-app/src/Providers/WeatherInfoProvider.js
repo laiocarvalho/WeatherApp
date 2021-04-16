@@ -10,7 +10,7 @@ const WeatherInfoProvider = () =>{
   
   const getWeatherInfo = async ()=>{
     const response = 
-    await fetch(`https://api.hgbrasil.com/weather?format=json-cors&key=842f23dd&city_name=${CityName}`);
+    await fetch(`https://api.hgbrasil.com/weather?format=json-cors&key=4a5d6ef6&city_name=${CityName}`);
     const data = await response.json()
     const nextDays = data.results.forecast;
     nextDays.slice(1,5)
