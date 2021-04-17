@@ -5,33 +5,77 @@
   padding: 0;
   font-family: 'Roboto', sans-serif;
 }
+
 * button{
   background-color: transparent;
   border: none;
   cursor: pointer;
 } 
+
 body{
   background-color: #F4A460;
-  border: 2px solid red;
   min-height: 100vh;
-  
-  
+  display: flex;
+  justify-content: center;
 }
 
 .App{
-  border:1px solid black;
   min-height: 100vh;
+  max-width: 500px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  border: 1px solid black;
+  margin-top: 50px;
 }
-
 
 .app-title{
   color: white;
   margin-bottom: 15px;
   font-size: 3.5em;
   text-shadow: 0px 4px 7px #000000;
+}
+
+.capitals-information-container{
+  border-top: 2px solid white;
+  margin-top: 35px;
+  max-width: 100%;
+  width: 100%;
+}
+
+.capitals-container-title{
+  color: white;
+  font-size: 1.8em;
+  text-shadow: 0px 4px 7px #000000;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+}
+
+.capitals-list{
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  max-height: 200px;
+  margin-top: 15px;
+}
+
+.capitals-list li{
+  padding-bottom: 15px;
+  font-weight: bold;
+  display: flex;
+}
+
+.capitals-temperature-container span{
+  margin-right: 5px;
+}
+
+
+@media (max-width:600px){
+  .app-title{
+    font-size: 3em;
+  }
+  .capitals-list{
+    flex-wrap: nowrap;
+  }
 }

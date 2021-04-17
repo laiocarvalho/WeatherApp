@@ -12,10 +12,10 @@ export default function WeatherCard({setWeatherCardVisibility}) {
     WeatherInformation, 
     NextDaysWeather,
     loading,
-  
+    CapitalsInformation,
     CurrentDay
   } = useContainer(WeatherInfoContainer);
-  console.log(WeatherInformation)
+ 
 
   
   return (

@@ -1,5 +1,7 @@
 import {createContainer} from 'unstated-next'
 import {useState, useEffect} from 'react'
+import json from './city.list.json'
+
 const WeatherInfoProvider = () =>{
   const [WeatherInformation, setWeatherInformation] = useState([]);
   const [CityName, setCityName] = useState();
@@ -7,7 +9,8 @@ const WeatherInfoProvider = () =>{
   const [NextDaysWeather, setNextDaysWeather] = useState([]);
   const [CurrentDay, setCurrentDay] = useState();
   const [loading, setLoading] = useState(true);
-  
+
+
   const getWeatherInfo = async ()=>{
     const response = 
     await fetch(`https://api.hgbrasil.com/weather?format=json-cors&key=4a5d6ef6&city_name=${CityName}`);
@@ -30,6 +33,7 @@ const WeatherInfoProvider = () =>{
     console.log(CityName)
   }
 
+  
   useEffect(() => {
     if(FetchController === true){
       getWeatherInfo();
@@ -44,7 +48,7 @@ const WeatherInfoProvider = () =>{
     getCityName,
     setFetchController,
     setCityName,
-    CityName
+    CityName,
   }
 }
 
